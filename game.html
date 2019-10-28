@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Advencur Game</title>
+
+        <style>
+            #game-window{
+                width: 800px;
+                height: 600px;
+                background-image: url(assets/images/fantasy_001.jpg);
+            }
+            #message-window{
+                position: absolute;
+                top: 400px;
+                left: 100px;
+
+                width: 600px;
+                height: 120px;
+                background-color:rgba(255, 255, 255, 0.5);
+
+                font-size: 20px;
+                padding: 8px;
+            }
+            #chara{
+                position: absolute;
+                top: 150px;
+                left: 30px;
+
+                width:350px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id='game-window'>
+            <img id="chara" src="assets/images/f127.png">
+
+            <div id='message-window'>
+                Hello World
+            </div>
+        </div>
+
+        <audio src="assets/audio/bgm_01.ogg" loop autoplay></audio>
+
+            <script>
+
+                scenario =[
+                    ["assets/images/f127.png", "Hello"],
+                    ["assets/images/f270.png", "World"],
+                    ["assets/images/f127.png", "I am your mother"]
+                ]
+
+                var index = 0;
+
+                chara = document.querySelector('#chara');
+
+                message = document.querySelector('#message-window');
+                message.addEventListener("click",()=>{
+                    if(index < scenario.length){
+                        message.innerHTML = scenario[index][1];
+                        chara.style.src = scenario[index][0];
+                        index++;
+                    } 
+                });
+
+                message.style.fontSize = "20px";
+
+            </script>
+    </body>
+</html>
